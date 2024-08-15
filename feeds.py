@@ -9,6 +9,13 @@ def extract_image_from_content(content):
     match = re.search(r'<img[^>]+src="([^">]+)"', content)
     return match.group(1) if match else None
 
+def remove_namespace(tree):
+    """Remove namespace from the parsed XML tree for easier access."""
+    for elem in tree.getiterator():
+        if '}' in elem.tag:
+            elem.tag = elem.tag.split('}', 1)[1]
+    return tree
+
 def fetch_articles():
     """
     Fetch articles from the feeds listed in FEEDS configuration.
@@ -21,8 +28,7 @@ def fetch_articles():
         
         if response.status_code == 200:
             root = ET.fromstring(response.content)  # Parse XML content
-            ns = feed.get('image_ns', {})  # Get namespaces for images
-            content_ns = feed.get('content_ns', {})  # Get namespaces for content
+            root = remove_namespace(root)  # Remove namespaces
             
             # List to temporarily store feed articles
             feed_articles = []
@@ -35,12 +41,12 @@ def fetch_articles():
                 timestamp = parser.parse(pub_date)  # Parse date to a datetime object
                 
                 # Extract image URL from <enclosure> or other image tags if available
-                image = item.find(feed.get('image_xpath', '.'), namespaces=ns)
+                image = item.find(feed.get('image_xpath', '.'))
                 image_url = image.get("url") if image is not None else None
                 
                 # If no image found, attempt to extract it from content
                 if not image_url and feed.get('content_xpath'):
-                    content = item.find(feed['content_xpath'], namespaces=content_ns)
+                    content = item.find(feed['content_xpath'])
                     content_text = content.text if content is not None else ""
                     image_url = extract_image_from_content(content_text)
                 
