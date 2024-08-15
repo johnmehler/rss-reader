@@ -67,13 +67,6 @@ FEEDS = [
         'image_ns': {}
     },
     {
-        'url': 'https://seymourhersh.substack.com/feed',
-        'source': 'Seymour Hersh Substack',
-        'source_url': 'https://seymourhersh.substack.com',  # Extracted URL
-        'image_xpath': './enclosure',
-        'image_ns': {}
-    },
-    {
         'url': 'https://thereveal.substack.com/feed',
         'source': 'The Reveal',
         'source_url': 'https://thereveal.substack.com/',  # Extracted URL
