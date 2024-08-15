@@ -8,15 +8,15 @@ FEEDS = [
         'content_xpath': './content:encoded',
         'content_ns': {'content': 'http:/purl.org/rss/1.0/modules/content/'}
     },
-    # {
-    #     'url': 'https://hedgehogreview.com/web-features/feed',
-    #     'source': 'Hedgehog Review',
-    #     'source_url': 'https://hedgehogreview.com/',  # Extracted URL
-    #     'image_xpath': './enclosure',
-    #     'image_ns': {},
-    #     'content_xpath': './content:encoded',
-    #     'content_ns': {'content': 'http:/purl.org/rss/1.0/modules/content/'}
-    # },
+    {
+        'url': 'https://hedgehogreview.com/web-features/feed',
+        'source': 'Hedgehog Review',
+        'source_url': 'https://hedgehogreview.com/',  # Extracted URL
+        'image_xpath': './enclosure',
+        'image_ns': {},
+        'content_xpath': './content:encoded',
+        'content_ns': {'content': 'http:/purl.org/rss/1.0/modules/content/'}
+    },
     {
         'url': 'https://mcrawford.substack.com/feed',
         'source': 'M.B. Crawford Substack',
