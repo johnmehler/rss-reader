@@ -93,5 +93,12 @@ FEEDS = [
         'source_url': 'https:///coolstuffnyc.substack.com/',  # Extracted URL
         'image_xpath': './enclosure',
         'image_ns': {}
+    },
+    {
+        'url': 'https://blankmanlist.substack.com/feed',
+        'source': 'Blankman List',
+        'source_url': 'https://blankmanlist.substack.com/',  # Extracted URL
+        'image_xpath': './enclosure',
+        'image_ns': {}
     }
 ]
