@@ -38,13 +38,13 @@ FEEDS = [
         'image_xpath': './enclosure',
         'image_ns': {}
     },
-    {
-        'url': 'https://feeds.feedblitz.com/marginalrevolution',
-        'source': 'Marginal Revolution',
-        'source_url': 'https://feeds.feedblitz.com/marginalrevolution',  # Extracted URL
-        'image_xpath': './enclosure',
-        'image_ns': {}
-    },
+    # {
+    #     'url': 'https://feeds.feedblitz.com/marginalrevolution',
+    #     'source': 'Marginal Revolution',
+    #     'source_url': 'https://feeds.feedblitz.com/marginalrevolution',  # Extracted URL
+    #     'image_xpath': './enclosure',
+    #     'image_ns': {}
+    # },
     {
         'url': 'https://samkriss.substack.com/feed',
         'source': 'Sam Kriss Substack',
