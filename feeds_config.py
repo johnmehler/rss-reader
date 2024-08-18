@@ -100,5 +100,20 @@ FEEDS = [
         'source_url': 'https://blankmanlist.substack.com/',  # Extracted URL
         'image_xpath': './enclosure',
         'image_ns': {}
+    },
+
+    {
+        'url': 'https://orwellfoundation.substack.com/feed',
+        'source': 'Orwell Foundation',
+        'source_url': 'https://orwellfoundation.substack.com/',  # Extracted URL
+        'image_xpath': './enclosure',
+        'image_ns': {}
+    },
+    {
+        'url': 'https://julianphilosophy.substack.com/feed',
+        'source': 'Fine Art, Made Accessible',
+        'source_url': 'https://julianphilosophy.substack.com/',  # Extracted URL
+        'image_xpath': './enclosure',
+        'image_ns': {}
     }
 ]
