@@ -4,31 +4,70 @@ body {
     padding: 0;
     background-color: #fff2e6; /* Soft peach background */
     color: #5a4a41; /* Warm brown text color */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
 }
 
-.container {
+.main-container {
+    display: flex;
     max-width: 1200px;
-    margin: 20px auto;
+    margin: 20px;
     padding: 20px;
     background-color: #fffaf0; /* Floral white for container */
     border-radius: 12px;
     box-shadow: 0 0 18px rgba(210, 180, 140, 0.2); /* Reduced shadow */
 }
 
-h1 {
-    text-align: center;
-    color: #d2691e; /* Chocolate color for heading */
-    margin-bottom: 30px;
-    font-size: 2.8em; 
-    font-weight: normal;
+.filter-section {
+    width: 300px; /* Fixed width for filter section */
+    padding: 20px;
+    background-color: #d8dcdc; /* Slightly off-white background for filter section */
+    border: 1px solid #d1bfa7; /* Soft border color to match theme */
+    border-radius: 8px;
+    margin-right: 20px;
+    position: -webkit-sticky; /* For Safari */
+    position: sticky; /* For modern browsers */
+    top: 20px; /* Distance from the top of the viewport */
+    align-self: flex-start; /* Ensure it aligns with the start of the flex container */
+}
+
+.filter-section form {
+    display: flex;
+    flex-direction: column;
+}
+
+.filter-section label {
+    font-size: 1.1em; /* Slightly larger font size for labels */
+    margin-bottom: 5px;
+    color: #5a4a41; /* Darker text color for better readability */
+}
+
+.filter-section select, 
+.filter-section input {
+    margin-bottom: 15px; /* Increased margin for spacing */
+    padding: 10px; /* Added padding for better input field appearance */
+    border: 1px solid #d1bfa7; /* Border color matching the theme */
+    border-radius: 4px; /* Slightly rounded corners */
+    background-color: #fff; /* White background for inputs */
+    color: #5a4a41; /* Dark text color for inputs */
+}
+
+.filter-section select:focus, 
+.filter-section input:focus {
+    border-color: #d2691e; /* Highlight border color on focus */
+    outline: none; /* Remove default outline */
+}
+
+.content-section {
+    flex: 1;
 }
 
 .article {
     display: flex;
     align-items: flex-start;
     border-bottom: 1px solid #ffe4b5; /* Moccasin color for borders */
-    padding: 20px 0; 
-    position: relative; /* Allows positioning of .source at the bottom */
+    padding: 20px 0;
 }
 
 .article:last-child {
@@ -46,12 +85,12 @@ h1 {
 
 .article .content {
     flex: 1;
-    position: relative; /* Ensure relative positioning for alignment */
+    position: relative;
 }
 
 .article h2 {
     margin: 0 0 15px 0;
-    font-size: 2.2em; /* 10% bigger than 2em */
+    font-size: 2.2em;
     color: #b8860b; /* Dark goldenrod for subheadings */
     font-weight: normal;
 }
@@ -67,44 +106,48 @@ h1 {
 }
 
 .article p {
-    margin: 15px 0; /* Reduced from 15px */
-    font-size: 1.21em; /* 10% bigger than 1.1em */
-    line-height: 1.76; /* 10% bigger than 1.6 */
-    color: #6b5a4f; /* Softer brown text color */
+    margin: 15px 0;
+    font-size: 1.21em;
+    line-height: 1.76;
+    color: #6b5a4f;
 }
 
 .article .content {
-    padding-bottom: 30px; /* Add padding at the bottom to create space for .source */
+    padding-bottom: 30px;
 }
 
 .source {
-    font-size: 1.045em; /* 10% bigger than 0.95em */
-    color: #a08679; /* Warm gray for source */
-    margin-top: 0; /* Removed top margin */
+    font-size: 1.045em;
+    color: #a08679;
     font-style: italic;
-    position: absolute; /* Absolute positioning to align at the bottom */
-    bottom: 0; /* Align to the bottom of .content */
-    left: 0; /* Align to the left of .content */
-    padding-left: 0; /* Align with the start of the text */
-    text-align: left; /* Align text to the left */
-    width: calc(100% - 25px); /* Full width minus image margin */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding-left: 0;
+    text-align: left;
+    width: calc(100% - 25px);
 }
 
 @media (max-width: 768px) {
-    .container {
-        padding: 13.5px; /* No change */
+    .filter-section {
+        width: 100%; /* Full width on smaller screens */
+        margin-right: 0;
     }
 
-    .article h2 {
-        font-size: 1.87em; /* 10% bigger than 1.7em */
+    .content-section {
+        width: 100%;
     }
 
     .article img {
-        width: 97.2px; /* 10% smaller than 108px */
-        height: 72.9px; /* 10% smaller than 81px */
+        width: 97.2px;
+        height: 72.9px;
     }
     
+    .article h2 {
+        font-size: 1.87em;
+    }
+
     .article p {
-        font-size: 1.1em; /* 10% bigger than 1em */
+        font-size: 1.1em;
     }
 }

@@ -16,10 +16,6 @@ def fetch_articles():
     """
     articles = []
     
-    headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3'
-    }
-
     for feed in FEEDS:
         response = requests.get(feed['url'])  # Fetch the RSS feed
         
@@ -37,6 +33,7 @@ def fetch_articles():
                 link = item.find("link").text  # Extract article link
                 pub_date = item.find("pubDate").text  # Extract publication date
                 timestamp = parser.parse(pub_date)  # Parse date to a datetime object
+                print("locating", title)
                 
                 # Extract image URL from <enclosure> or other image tags if available
                 image = item.find(feed.get('image_xpath', '.'), namespaces=ns)
