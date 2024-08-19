@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 from feeds import fetch_articles
 from datetime import datetime
+import os
 
 app = Flask(__name__)
 
@@ -44,4 +45,4 @@ def index():
                            selected_end_date=selected_end_date)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host='0.0.0.0', debug=os.getenv("FLASK_DEBUG", 'False').lower() in ('true', '1', 't'))
