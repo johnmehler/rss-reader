@@ -33,7 +33,6 @@ def fetch_articles():
                 link = item.find("link").text  # Extract article link
                 pub_date = item.find("pubDate").text  # Extract publication date
                 timestamp = parser.parse(pub_date)  # Parse date to a datetime object
-                print("locating", title)
                 
                 # Extract image URL from <enclosure> or other image tags if available
                 image = item.find(feed.get('image_xpath', '.'), namespaces=ns)

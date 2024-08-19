@@ -1,0 +1,66 @@
+/* General filter container styles */
+.filter-container {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 300px;
+    height: 100%;
+    background-color: #0c60b4;
+    padding: 20px;
+    border-right: 1px solid #d1bfa7;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    color: #ffffff; /* White text for better contrast */
+}
+
+/* Style the form elements */
+.filter-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.filter-container label {
+    font-size: 1.1em;
+    margin-bottom: 5px;
+}
+
+.filter-container select, 
+.filter-container input {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #d1bfa7;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #5a4a41;
+}
+
+.filter-container select:focus, 
+.filter-container input:focus {
+    border-color: #d2691e;
+    outline: none;
+}
+
+/* Style the list of sources */
+.source-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.source-list li {
+    margin-bottom: 10px;
+}
+
+.source-list li a {
+    display: block;
+    padding: 10px;
+    background-color: #ffffff; /* White background for source boxes */
+    color: #0c60b4; /* Dodger Blue text for links */
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.source-list li a:hover {
+    background-color: #d2691e; /* Change to orange when hovered */
+    color: #ffffff; /* White text on hover */
+}

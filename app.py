@@ -9,7 +9,7 @@ def index():
     # Fetch articles from the feeds
     articles = fetch_articles()
     articles.sort(key=lambda x: x["timestamp"], reverse=True)
-    
+
     # Get unique sources for the filter dropdown
     sources = sorted(set(article["source"] for article in articles))
     

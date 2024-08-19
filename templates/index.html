@@ -4,45 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RSS Feed</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='filter.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
 </head>
 <body>
-    <div class="main-container">
-        <div class="content-section">
-            <h1>Latest Articles</h1>
-            {% for article in articles %}
-                <div class="article">
-                    <img src="{{ article.image }}" alt="Article Image">
-                    <div class="content">
-                        <h2><a href="{{ article.link }}">{{ article.title }}</a></h2>
-                        <p>{{ article.timestamp.strftime('%B %d, %Y') }}</p>
-                        <p class="source">
-                            Source: <a href="{{ article.source_url }}" target="_blank">{{ article.source }}</a>
-                        </p>
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
+    <!-- Parent container to hold both filter and main content sections -->
+    <div class="layout-container">
+        <!-- Include the filter section -->
+        {% include 'filter.html' %}
 
-        <div class="filter-section">
-            <form method="get">
-                <label for="source">Filter by Source:</label>
-                <select name="source" id="source" onchange="this.form.submit()">
-                    <option value="">All</option>
-                    {% for source in sources %}
-                        <option value="{{ source }}" {% if selected_source == source %}selected{% endif %}>{{ source }}</option>
-                    {% endfor %}
-                </select>
-
-                <br><br>
-
-                <label for="start_date">Start Date:</label>
-                <input type="date" name="start_date" id="start_date" value="{{ selected_start_date }}" onchange="this.form.submit()">
-
-                <label for="end_date">End Date:</label>
-                <input type="date" name="end_date" id="end_date" value="{{ selected_end_date }}" onchange="this.form.submit()">
-            </form>
-        </div>
+        <!-- Include the main content section -->
+        {% include 'content.html' %}
     </div>
 </body>
 </html>

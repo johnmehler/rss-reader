@@ -19,7 +19,7 @@ FEEDS = [
     },
     {
         'url': 'https://mcrawford.substack.com/feed',
-        'source': 'M.B. Crawford Substack',
+        'source': 'Archedelia',
         'source_url': 'https://mcrawford.substack.com',  # Extracted URL
         'image_xpath': './enclosure',
         'image_ns': {}
