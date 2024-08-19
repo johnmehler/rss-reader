@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RSS Feed</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='filter.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='sources.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
 </head>
 <body>
     <!-- Parent container to hold both filter and main content sections -->
     <div class="layout-container">
         <!-- Include the filter section -->
-        {% include 'filter.html' %}
+        {% include 'sources.html' %}
 
         <!-- Include the main content section -->
         {% include 'content.html' %}

@@ -1,0 +1,29 @@
+<!-- Container for the filter section -->
+<div class="filter-container">
+    <div class="filter-section">
+        <form method="get">
+            <div class="filter-group">
+                <label for="start_date">Start Date:</label>
+                <input type="date" name="start_date" id="start_date" value="{{ selected_start_date }}" onchange="this.form.submit()">
+            </div>
+
+            <div class="filter-group">
+                <label for="end_date">End Date:</label>
+                <input type="date" name="end_date" id="end_date" value="{{ selected_end_date }}" onchange="this.form.submit()">
+            </div>
+        </form>
+        
+        <!-- Separator between filters and feeds -->
+        <div class="filter-separator"></div>
+
+        <!-- List of Sources Below the Filters -->
+        <h3>Feeds</h3>
+        <ul class="source-list">
+            {% for source in sources %}
+                <li>
+                    <a href="?source={{ source }}&start_date={{ selected_start_date }}&end_date={{ selected_end_date }}">{{ source }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
