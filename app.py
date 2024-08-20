@@ -5,6 +5,9 @@ from werkzeug.middleware.proxy_fix import ProxyFix
 import os
 
 app = Flask(__name__)
+if os.getenv("FLASK_PROXY", 'False').lower() in ('true', '1', 't'):
+    app.logger.info("loading proxy fix")
+    app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_proto=1, x_host=1, x_prefix=1)
 
 @app.route('/')
 def index():
@@ -47,6 +50,3 @@ def index():
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=os.getenv("FLASK_DEBUG", 'False').lower() in ('true', '1', 't'))
-    if os.getenv("FLASK_PROXY", 'False').lower() in ('true', '1', 't'):
-        app.logger.warning("loading proxy fix")
-        app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_proto=1, x_host=1, x_prefix=1)
