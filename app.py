@@ -1,9 +1,13 @@
 from flask import Flask, render_template, request
 from feeds import fetch_articles
 from datetime import datetime
+from werkzeug.middleware.proxy_fix import ProxyFix
 import os
 
 app = Flask(__name__)
+if os.getenv("FLASK_PROXY", 'False').lower() in ('true', '1', 't'):
+    app.logger.info("loading proxy fix")
+    app.wsgi_app = ProxyFix(app.wsgi_app, x_for=1, x_proto=1, x_host=1, x_prefix=1)
 
 @app.route('/')
 def index():
